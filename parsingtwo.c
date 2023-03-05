@@ -6,7 +6,7 @@
 /*   By: jvasseur <jvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:32:08 by jvasseur          #+#    #+#             */
-/*   Updated: 2023/03/05 14:52:24 by jvasseur         ###   ########.fr       */
+/*   Updated: 2023/03/05 15:06:40 by jvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	checkber(char *str)
 	i = ft_strlen(str);
 	if (i == 4)
 	{
-		ft_printf("Error\n name of the map invalide");
+		ft_printf("Error\nname of the map invalide");
 		return (0);
 	}
 	if (str[i - 4] != '.' || str[i - 3] != 'b'

@@ -6,7 +6,7 @@
 /*   By: jvasseur <jvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 16:19:10 by jvasseur          #+#    #+#             */
-/*   Updated: 2023/01/18 15:45:55 by jvasseur         ###   ########.fr       */
+/*   Updated: 2023/03/05 15:31:14 by jvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	positionp(t_data *data)
 		{
 			if (data->str[data->i][data->j] == 'P')
 			{
-				data->posx = data->i * 64;
-				data->posy = data->j * 64;
+				data->posy = data->i * 64;
+				data->posx = data->j * 64;
 				return ;
 			}
 			data->j++;
