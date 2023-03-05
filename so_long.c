@@ -6,7 +6,7 @@
 /*   By: jvasseur <jvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 16:20:37 by jvasseur          #+#    #+#             */
-/*   Updated: 2023/03/05 15:30:42 by jvasseur         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:01:55 by jvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int	graph(char **argv, int h, int w, t_data *data)
 {
 	data->fd = open(argv[1], O_RDONLY);
 	data->str = create_map(data->fd, data);
+	close(data->fd);
 	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, (w * 64), (h * 64), "So_long");
 	positionp(data);

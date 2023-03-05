@@ -6,7 +6,7 @@
 /*   By: jvasseur <jvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:20:16 by jvasseur          #+#    #+#             */
-/*   Updated: 2023/03/05 14:51:20 by jvasseur         ###   ########.fr       */
+/*   Updated: 2023/03/05 16:33:39 by jvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,28 +99,16 @@ void	free_split(char **tab)
 	free(tab);
 }
 
-int	checkfull(int argc, char **argv, t_data *data)
+int	helpcheck(char **str)
 {
-	int		fd;
-	char	**str;
-
-	nbargc(argc);
-	if (argc != 2)
-		return (0);
-	if (checkber(argv[1]) == 0)
-		return (0);
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-	{
-		ft_printf("Error\nmap not exist or unavaible");
-		return (0);
-	}
-	str = create_map(fd, data);
-	close(fd);
 	if (fullcheck(str) == 0)
 	{
-		write(1, "Error\n", 7);
 		fullchecktwo(str);
+		free_split(str);
+		return (0);
+	}
+	if (verif_floodfill(str) == 0)
+	{
 		free_split(str);
 		return (0);
 	}

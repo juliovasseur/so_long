@@ -6,7 +6,7 @@
 /*   By: jvasseur <jvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:32:08 by jvasseur          #+#    #+#             */
-/*   Updated: 2023/03/05 15:06:40 by jvasseur         ###   ########.fr       */
+/*   Updated: 2023/03/05 17:09:58 by jvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ int	checkber(char *str)
 		ft_printf("Error\nname of the map invalide");
 		return (0);
 	}
+	if (str[i - 5] == '/')
+	{
+		ft_printf("Error\nname of the map invalide");
+		return (0);
+	}
 	return (1);
 }
 
@@ -73,25 +78,39 @@ int	fullcheck(char **str)
 		return (0);
 	else if (check_map_wall(str) == 0)
 		return (0);
-	else if (check_twomap(str) == 0)
-		return (0);
 	return (1);
 }
 
 void	fullchecktwo(char **str)
 {
+	write(1, "Error\n", 7);
 	if (check_rectangle(str) == 0)
 		ft_printf("your map is not rectangle");
 	else if (check_consumable(str, 'E') != 1)
+	{
 		ft_printf("your map dont have letter E");
+		ft_printf("or there are 2 and more letter E");
+	}
 	else if (check_consumable(str, 'P') != 1)
+	{
 		ft_printf("your map dont have letter P");
+		ft_printf("or there are 2 and more letter P");
+	}
 	else if (check_consumable(str, 'C') < 1)
 		ft_printf("your map dont have letter C");
 	else if (existing_letter(str) == 0)
 		ft_printf("your map contains an invalid character");
 	else if (check_map_wall(str) == 0)
 		ft_printf("your map must be completely closed off by walls");
-	else if (check_twomap(str) == 0)
+}
+
+int	verif_floodfill(char **str)
+{
+	if (check_twomap(str) == 0)
+	{
+		write(1, "Error\n", 7);
 		ft_printf("your map is not possible");
+		return (0);
+	}
+	return (1);
 }

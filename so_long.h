@@ -6,7 +6,7 @@
 /*   By: jvasseur <jvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:30:33 by jvasseur          #+#    #+#             */
-/*   Updated: 2023/01/18 15:59:37 by jvasseur         ###   ########.fr       */
+/*   Updated: 2023/03/05 16:36:17 by jvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void	free_split(char **tab);
 int		verifbackslashn(char *str);
 void	nbargc(int argc);
 void	freeall(t_data *data);
-
+int		verif_floodfill(char **str);
+int		helpcheck(char **str);
 #endif

@@ -6,7 +6,7 @@
 /*   By: jvasseur <jvasseur@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 16:19:10 by jvasseur          #+#    #+#             */
-/*   Updated: 2023/03/05 15:31:14 by jvasseur         ###   ########.fr       */
+/*   Updated: 2023/03/05 16:58:48 by jvasseur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	height(char **argv, t_data *data)
 	i = 0;
 	fd = open(argv[1], O_RDONLY);
 	tab = create_map(fd, data);
+	close(fd);
 	while (tab[i])
 		i++;
 	free_split(tab);
@@ -38,6 +39,7 @@ int	weight(char **argv, t_data *data)
 	i = 0;
 	fd = open(argv[1], O_RDONLY);
 	tab = create_map(fd, data);
+	close(fd);
 	while (tab[0][j])
 		j++;
 	free_split(tab);
